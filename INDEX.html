@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Healthcare Services - Coquette Editorial Concept</title>
+    <!-- Memanggil Google Fonts untuk gaya Serif Klasik dan Montserrat -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        
+        body { 
+            /* Latar belakang Soft Blue yang adem dan bersih */
+            background: linear-gradient(135deg, #e0e9fd 0%, #f0f4ff 100%); 
+            color: #2b3a61; /* Tulisan umum berwarna Biru Tua */
+            font-family: 'Montserrat', sans-serif;
+            display: flex; flex-direction: column; min-height: 100vh;
+            padding: 30px;
+            position: relative;
+            overflow-x: hidden;
+        }
+        
+        /* ==========================================================================
+           ANIMASI BERGERAK UNTUK ELEMEN FOTO (PLAYFUL COQUETTE FLOAT)
+           ========================================================================== */
+        @keyframes coquetteFloat {
+            0% { transform: translateY(0px) scale(1) rotate(0deg); }
+            50% { transform: translateY(-18px) scale(1.03) rotate(4deg); }
+            100% { transform: translateY(0px) scale(1) rotate(0deg); }
+        }
+        @keyframes coquetteRotate {
+            0% { transform: scale(1) rotate(0deg); }
+            50% { transform: scale(1.06) rotate(-6deg); }
+            100% { transform: scale(1) rotate(0deg); }
+        }
+
+        .medical-sidebar {
+            position: absolute; top: 0; width: 180px; height: 100%; pointer-events: none; z-index: 2;
+        }
+        .sidebar-left { left: 25px; }
+        .sidebar-right { right: 25px; }
+
+        /* Gaya dasar untuk elemen gambar dari Kirana */
+        .med-img { 
+            position: absolute; 
+            width: 75px; /* Ukuran gambar yang pas di pinggir */
+            height: auto;
+            filter: drop-shadow(4px 6px 12px rgba(112, 142, 219, 0.2)); /* Bayangan lembut */
+        }
+        
+        /* Pengaturan Posisi Gambar Sisi Kiri */
+        .img-kiri-1 { top: 12%; left: 10px; animation: coquetteFloat 5s infinite; }
+        .img-kiri-2 { top: 34%; left: 45px; animation: coquetteRotate 4.5s infinite; }
+        .img-kiri-3 { top: 56%; left: 15px; animation: coquetteFloat 5.8s infinite 0.3s; }
+        .img-kiri-4 { top: 78%; left: 35px; animation: coquetteRotate 5.2s infinite 0.1s; }
+
+        /* Pengaturan Posisi Gambar Sisi Kanan */
+        .img-kanan-1 { top: 14%; right: 15px; animation: coquetteFloat 5.2s infinite 0.2s; }
+        .img-kanan-2 { top: 36%; right: 50px; animation: coquetteRotate 4.8s infinite; }
+        .img-kanan-3 { top: 58%; right: 20px; animation: coquetteFloat 5.5s infinite; }
+        .img-kanan-4 { top: 80%; right: 40px; animation: coquetteRotate 6s infinite 0.4s; }
+
+        /* ==========================================================================
+           STRUKTUR LAYOUT EDITORIAL BINGKAI GANDA
+           ========================================================================== */
+        .page-border {
+            border: 1px solid #b8c9f0;
+            flex: 1; display: flex; flex-direction: column;
+            padding: 40px; position: relative;
+            z-index: 1;
+            background: rgba(255, 255, 255, 0.3);
+            backdrop-filter: blur(6px);
+        }
+        .page-border::before {
+            content: "";
+            position: absolute;
+            top: 4px; left: 4px; right: 4px; bottom: 4px;
+            border: 1px solid #d6e2ff;
+            pointer-events: none;
+        }
+
+        header { text-align: center; margin-bottom: 35px; }
+        header h1 { 
+            font-family: 'Cormorant Garamond', serif; 
+            font-size: 3.2rem; font-weight: 400; 
+            color: #2b3a61; /* Warna Biru Tua */
+            letter-spacing: -0.5px; line-height: 1.1;
+        }
+        header p { 
+            font-size: 0.75rem; font-weight: 700; letter-spacing: 4px; 
+            text-transform: uppercase; margin-top: 15px; 
+            color: #766291; /* Warna Ungu */
+        }
+        
+        .line-separator {
+            width: 80px; height: 1px; background-color: #766291; margin: 25px auto 0 auto;
+        }
+        
+        nav { display: flex; justify-content: center; gap: 40px; margin-bottom: 50px; }
+        nav a { 
+            color: #5c6f9e; text-decoration: none; font-size: 0.85rem; font-weight: 700; 
+            letter-spacing: 1.5px; text-transform: uppercase; padding-bottom: 5px;
+            border-bottom: 1px solid transparent; transition: all 0.3s;
+        }
+        nav a:hover, nav a.active { 
+            color: #2b3a61; /* Biru Tua saat aktif */
+            border-bottom: 1px solid #2b3a61; 
+        }
+        
+        main { flex: 1; display: flex; align-items: center; justify-content: center; max-width: 850px; margin: 0 auto; }
+        
+        /* Hero Kartu Tengah (Hint Putih Bersih) */
+        .hero-section { 
+            text-align: center; 
+            border: 1px solid #b8c9f0; 
+            padding: 60px 50px;
+            position: relative;
+            background-color: rgba(255, 255, 255, 0.9); /* Hint putih bersih kontras */
+            box-shadow: 0 15px 35px rgba(90, 123, 240, 0.05);
+        }
+        
+        .editorial-badge {
+            position: absolute;
+            top: -20px; left: 50%; transform: translateX(-50%);
+            background-color: #ffffff; padding: 5px 20px;
+            font-family: 'Cormorant Garamond', serif; font-style: italic;
+            font-size: 0.9rem; 
+            color: #766291; /* Warna Ungu */
+            border: 1px solid #b8c9f0;
+            letter-spacing: 1px; font-weight: 600;
+        }
+
+        /* GRASI WARNA BIRU & UNGU PADA JUDUL BESAR */
+        .hero-section h2 { 
+            font-family: 'Cormorant Garamond', serif; 
+            font-size: 2.5rem; font-weight: 400; margin-bottom: 25px; 
+            background: linear-gradient(to right, #2b3a61 30%, #766291 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            display: inline-block;
+        }
+        .hero-section h2 em { font-style: italic; }
+        
+        .hero-section p { 
+            font-size: 0.9rem; line-height: 1.9; 
+            color: #435075; /* Biru Tua Lembut */
+            max-width: 650px; margin: 0 auto 40px auto; text-align: justify;
+            text-justify: inter-word; font-weight: 400;
+        }
+        
+        /* Tombol Utama bergaya Coquette Editorial */
+        .btn { 
+            display: inline-block; border: 1px solid #2b3a61; color: #ffffff; 
+            padding: 15px 45px; text-decoration: none; font-size: 0.85rem; font-weight: 600; 
+            letter-spacing: 2px; text-transform: uppercase; background-color: #2b3a61;
+            transition: all 0.3s ease;
+        }
+        .btn:hover { background-color: transparent; color: #2b3a61; transform: translateY(-2px); }
+        
+        footer { text-align: center; font-size: 0.75rem; color: #766291; letter-spacing: 1.5px; margin-top: 40px; }
+    </style>
+</head>
+<body>
+
+    <!-- ==========================================================================
+       SISI KIRI (bandage.png, RS.png, obat.png, jantung.png)
+       ========================================================================== -->
+    <div class="medical-sidebar sidebar-left">
+        <img src="IMAGES/bandage.png" alt="Bandage" class="med-img img-kiri-1">
+        <img src="IMAGES/RS.png" alt="Rumah Sakit" class="med-img img-kiri-2">
+        <img src="IMAGES/obat.png" alt="Obat" class="med-img img-kiri-3">
+        <img src="IMAGES/jantung.png" alt="Jantung" class="med-img img-kiri-4">
+    </div>
+
+    <!-- ==========================================================================
+       SISI KANAN (kusying.png, stetoskop.png, suntikan.png, dna.png)
+       ========================================================================== -->
+    <div class="medical-sidebar sidebar-right">
+        <img src="IMAGES/kusying.png" alt="Kucing Medis" class="med-img img-kanan-1">
+        <img src="IMAGES/stetoskop.png" alt="Stetoskop" class="med-img img-kanan-2">
+        <img src="IMAGES/suntikan.png" alt="Suntikan" class="med-img img-kanan-3">
+        <img src="IMAGES/dna.png" alt="DNA" class="med-img img-kanan-4">
+    </div>
+
+    <!-- BINGKAI UTAMA EDITORIAL -->
+    <div class="page-border">
+        <header>
+            <h1>Geographic Information System</h1>
+            <p>Healthcare Services &mdash; Kota Bekasi</p>
+            <div class="line-separator"></div>
+        </header>
+        
+        <nav>
+            <a href="#" class="active">Beranda</a>
+            <a href="PAGE/WebGIS.html">Peta Sebaran RS</a>
+            <a href="PAGE/Biodata.html">Biodata</a>
+        </nav>
+        
+        <main>
+            <div class="hero-section">
+                <div class="editorial-badge">Spatial Information Platform</div>
+                
+                <!-- Judul Utama Efek Gradasi Biru-Ungu -->
+                <h2>Eksplorasi Fasilitas Kesehatan Regional</h2>
+                
+                <p>Selamat datang. Platform informasi spasial ini dirancang secara khusus untuk memetakan serta menyajikan visualisasi sebaran data rumah sakit di wilayah Kota Bekasi secara transparan. Kehadiran sistem informasi geografis berbasis web ini diharapkan mampu menyederhanakan pencarian dan mendukung kemudahan aksesibilitas layanan kesehatan esensial bagi seluruh lapisan masyarakat luas.</p>
+                
+                <a href="PAGE/WebGIS.html" class="btn">Jelajahi Peta Spasial</a>
+            </div>
+        </main>
+        
+        <footer>
+            <p>&bull; &copy; 2026 Septian Kirana Wardani &bull;</p>
+        </footer>
+    </div>
+
+</body>
+</html>
